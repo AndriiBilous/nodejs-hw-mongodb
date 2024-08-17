@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import express from 'express';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
     getContactsController,
@@ -14,8 +14,10 @@ import {
 } from '../validation/contacts.js';
 import { isValidId } from '../middlewares/isValidId.js';
 import { authenticate } from '../middlewares/authenticate.js';
+import { upload } from '../middlewares/multer.js';
 
-const router = Router();
+const router = express.Router();
+const jsonParser = express.json();
 
 router.use(authenticate);
 
@@ -27,12 +29,16 @@ router.get(
 );
 router.post(
     '/contacts',
+    jsonParser,
+    upload.single('photo'),
     validateBody(createContactSchema),
     ctrlWrapper(createContactController),
 );
 router.patch(
     '/contacts/:contactId',
     isValidId,
+    jsonParser,
+    upload.single('photo'),
     validateBody(updateContactsSchema),
     ctrlWrapper(patchContactController),
 );
