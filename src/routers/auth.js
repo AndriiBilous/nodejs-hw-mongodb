@@ -25,7 +25,7 @@ router.post(
     '/auth/login',
     jsonParser,
     validateBody(loginUserSchema),
-    loginUserController,
+    ctrlWrapper(loginUserController),
 );
 router.post('/auth/refresh', ctrlWrapper(refreshUserSessionController));
 router.post('/auth/logout', ctrlWrapper(logoutUserController));
