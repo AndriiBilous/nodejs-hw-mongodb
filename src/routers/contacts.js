@@ -19,16 +19,16 @@ import { upload } from '../middlewares/multer.js';
 const router = express.Router();
 const jsonParser = express.json();
 
-router.use(authenticate);
-
-router.get('/contacts', ctrlWrapper(getContactsController));
+router.get('/contacts', authenticate, ctrlWrapper(getContactsController));
 router.get(
     '/contacts/:contactId',
+    authenticate,
     isValidId,
     ctrlWrapper(getContactsByIdController),
 );
 router.post(
     '/contacts',
+    authenticate,
     jsonParser,
     upload.single('photo'),
     validateBody(createContactSchema),
@@ -36,6 +36,7 @@ router.post(
 );
 router.patch(
     '/contacts/:contactId',
+    authenticate,
     isValidId,
     jsonParser,
     upload.single('photo'),
@@ -44,6 +45,7 @@ router.patch(
 );
 router.delete(
     '/contacts/:contactId',
+    authenticate,
     isValidId,
     ctrlWrapper(deleteContactController),
 );
