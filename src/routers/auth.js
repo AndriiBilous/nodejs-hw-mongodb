@@ -30,7 +30,7 @@ router.post(
 router.post('/auth/refresh', ctrlWrapper(refreshUserSessionController));
 router.post('/auth/logout', ctrlWrapper(logoutUserController));
 router.post(
-    '/auth/request-reset-email',
+    '/auth/send-reset-email',
     jsonParser,
     validateBody(requestResetEmailSchema),
     ctrlWrapper(requestResetEmailController),
