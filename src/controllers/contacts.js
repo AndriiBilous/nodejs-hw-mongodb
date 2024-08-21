@@ -58,7 +58,7 @@ export const createContactController = async (req, res) => {
     const contact = await createContact(
         {
             ...req.body,
-            photo: photoUrl || null,
+            photo: photoUrl,
         },
         userId,
     );
