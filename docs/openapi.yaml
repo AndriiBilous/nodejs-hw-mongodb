@@ -17,7 +17,8 @@ servers:
     - url: #посилання на задеплоєний сайт
 paths:
     /contacts/{id}:
-        $ref: ./swagger/paths/contacts/{id}/get.yaml
+        get:
+            $ref: ../swagger/paths/contacts/{id}/get.yaml
 components:
     securitySchemes:
         bearerAuth:
