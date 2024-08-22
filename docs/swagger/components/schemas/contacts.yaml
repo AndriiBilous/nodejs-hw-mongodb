@@ -1,0 +1,29 @@
+type: object
+required:
+    - _id
+    - name
+    - phoneNumber
+    - contactType
+    - email
+properties:
+    _id:
+        description: "Contact's id"
+        type: string
+        example: 6694883cea2bf36a6ff9ca9c
+    name:
+        description: "Contact's name"
+        type: string
+        example: 'John Doe'
+    phoneNumber:
+        description: 'Contact phone number'
+        type: string
+        example: 1111111111
+    contactType:
+        description: "Contact's contact type"
+        type: string
+        enum: ['work', 'home', 'personal']
+        example: home
+    email:
+        description: "Contact's email"
+        type: string
+        example: 'contact@gmail.com'
