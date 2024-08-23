@@ -29,11 +29,16 @@ parameters:
           enum: ['asc', 'desc']
           example: 'asc'
     - in: query
+      name: name
+      schema:
+          type: string
+          example: 'John Doe'
+    - in: query
       name: contactType
       schema:
           type: string
           enum: ['work', 'home', 'personal']
-          example: male
+          example: work
     - in: query
       name: phoneNumber
       schema:
