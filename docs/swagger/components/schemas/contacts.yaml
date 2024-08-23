@@ -27,3 +27,11 @@ properties:
         description: "Contact's email"
         type: string
         example: 'contact@gmail.com'
+    isFavourite:
+        description: "Contact's is favourite"
+        type: boolean
+        example: true
+    photo:
+        description: "Contact's photo"
+        type: string
+        example: https://res.cloudinary.com/dqyfgaltq/image/upload/v1724278794/aumpo0x2npweeqgeut6f.png
